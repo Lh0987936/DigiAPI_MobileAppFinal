@@ -21,9 +21,13 @@ struct DevelopView: View {
             }
             .padding()
             VStack {
+                //Grabs the image from the Assets
                 Image(developer.photo)
                     .resizable()
-                    .frame(width:450)
+                    .frame(width:350)
+                    .padding()
+                    .background(.gray)
+                    .cornerRadius(10)
             }
             VStack {
                 Text("Age: \(developer.Age)")

@@ -12,9 +12,12 @@ struct ContentView: View {
     var body: some View {
         TabView {
             NavigationStack {
+                //Title
                 VStack {
                     Text("The DigiList!")
+                        .font(.largeTitle)
                 }
+                //LazyGrid to display digimon buttons
                 LazyVGrid(columns: Array(repeating: GridItem(), count:2)) {
                     ForEach(viewModel.content) {
                         digi in DigiFileView(digifile: digi)
@@ -31,6 +34,7 @@ struct ContentView: View {
                     viewModel.DigiScan()
                 }
             }
+            //pulls up each digimon in the Detail View!
             .fullScreenCover(item: $viewModel.selected, content: {digi in DigiDetailView(digimon:digi)})
             .tabItem {
                 Label("DigiSearch", systemImage:"magnifyingglass")

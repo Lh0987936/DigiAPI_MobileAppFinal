@@ -17,7 +17,6 @@ struct DigiFile: Decodable, Identifiable {
     let name: String
     let href: String
     let image: String
-    var Digimon: Digimon? //Hopefully will be able to fill with the Digimon after Decoded
 }
 
 //Called from href in DigiList
@@ -56,7 +55,7 @@ struct Description: Decodable {
     let language: String
     let description: String
 }
-
+// Pictures with their Href, and if the image is transparent.
 struct Pic: Decodable {
     let href: String
     let transparent: Bool

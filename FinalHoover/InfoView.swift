@@ -9,6 +9,7 @@ import SwiftUI
 
 struct InfoView: View {
     var body: some View {
+        //Simple Vstack with Info
         VStack {
             Text("DAPI: Digimon API")
                 .bold()

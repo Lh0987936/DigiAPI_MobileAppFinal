@@ -14,6 +14,7 @@ struct DigiDetailView: View {
         VStack {
         Text(digimon.name)
             .font(.largeTitle)
+            
         let pic = digimon.images.first?.href ?? ""
         if let url = URL(string: pic),
            !pic.isEmpty {
@@ -30,8 +31,10 @@ struct DigiDetailView: View {
             ProgressView()
                 .frame(height: 75)
         }
+            
         let englishDesc = digimon.findEn_US()
-        if englishDesc != -1 {Text("\(digimon.descriptions[englishDesc].description)")
+        
+            if englishDesc != -1 {Text("\(digimon.descriptions[englishDesc].description)")
                 .font(.callout)
             .padding()} else {
                 Text("No Description Found...")
@@ -40,7 +43,7 @@ struct DigiDetailView: View {
             }
         }
         Text("Environments")
-        HStack {
+        HStack { //Making a Lazy grid for the different environment icons.
             let environments = digimon.fields.count
             if environments > 0 {
                 LazyVGrid (columns: Array(repeating: GridItem(), count:4)) {
@@ -51,6 +54,7 @@ struct DigiDetailView: View {
                 
             }
         } .padding()
+        //Good ol' back button
         Button(action: {dismiss()}) {
             Text("Back")
                 .font(.largeTitle)
